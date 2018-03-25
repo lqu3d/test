@@ -1,0 +1,15 @@
+#version 330 core
+
+in vec3 vcolor;
+in vec2 UV;
+
+out vec3 color;
+
+uniform sampler2D myTextureSampler;
+uniform sampler2D myTextureSampler2;
+
+void main(){
+	vec3 clr1 = texture( myTextureSampler, UV ).rgb;
+	vec3 clr2 = texture( myTextureSampler2, UV ).rgb;
+	color = (clr1*0.7 + clr2*0.3)*vcolor;
+}
